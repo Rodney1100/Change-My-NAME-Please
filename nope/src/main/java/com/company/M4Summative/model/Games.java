@@ -43,6 +43,7 @@ public class Games {
     public Games() {
     }
 
+
     public Integer getId() {
         return id;
     }
@@ -93,6 +94,13 @@ public class Games {
 
     @Override
     public String toString() {
-        return "Games{" + "id=" + id + ", price=" + price + ", ESRBRating=" + ESRBRating + ", name='" + name + '\'' + ", studio='" + studio + '\'' + ", title='" + title + '\'' + '}';
+        return "Games{" +
+                "id=" + id +
+                ", price=" + price +
+                ", ESRBRating=" + ESRBRating +
+                ", name='" + name + '\'' +
+                ", studio='" + studio + '\'' +
+                ", title='" + title + '\'' +
+                '}';
     }
 }
