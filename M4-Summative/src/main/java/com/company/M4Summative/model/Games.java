@@ -1,46 +1,94 @@
 package com.company.M4Summative.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Table(name = "Games")
+@Table(name = "Game")
 public class Games {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @NotNull
+    @Column(name = "game_id")
     private Integer id;
-    private double price;
-    private double ESRBRating;
-    private String name;
-    private String studio;
+
+    @NotNull
+//  @NotEmpty(message = "You must supply a value for Title")
+    @Length(max = 50, min = 1)
     private String title;
+
+    @NotNull
+//  @NotEmpty(message = "You must supply a value for ESRBRating")
+    @Length(max = 50, min = 1)
+    private double ESRBRating;
+
+    @NotNull
+//  @NotEmpty(message = "You must supply a value for description ")
+    @Length(max = 255, min = 1)
+    private String description;
+
+    @NotNull
+//  @NotEmpty(message = "You must supply a value for Price")
+    private BigDecimal price;
+
+    @NotNull
+//  @NotEmpty(message = "You must supply a value for Name")
+    private String name;
+
+    @NotNull
+//  @NotEmpty(message = "You must supply a value for Studio")
+    @Length(max = 50, min = 1)
+    private String studio;
+
+    @NotNull
+    private int quantity;
+
+    public Games(Integer id, String title, double ESRBRating, String description, BigDecimal price, String name, String studio, int quantity) {
+        this.id = id;
+        this.title = title;
+        this.ESRBRating = ESRBRating;
+        this.description = description;
+        this.price = price;
+        this.name = name;
+        this.studio = studio;
+        this.quantity = quantity;
+    }
+
+    public Games() {
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Games games = (Games) o;
-        return Double.compare(games.price, price) == 0 && Double.compare(games.ESRBRating, ESRBRating) == 0 && Objects.equals(id, games.id) && Objects.equals(name, games.name) && Objects.equals(studio, games.studio) && Objects.equals(title, games.title);
+        return Double.compare(games.ESRBRating, ESRBRating) == 0 && quantity == games.quantity && Objects.equals(id, games.id) && Objects.equals(title, games.title) && Objects.equals(description, games.description) && Objects.equals(price, games.price) && Objects.equals(name, games.name) && Objects.equals(studio, games.studio);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, price, ESRBRating, name, studio, title);
+        return Objects.hash(id, title, ESRBRating, description, price, name, studio, quantity);
     }
 
-    public Games(Integer id, double price, double ESRBRating, String name, String studio, String title) {
-        id = id;
-        this.price = price;
-        this.ESRBRating = ESRBRating;
-        this.name = name;
-        this.studio = studio;
-        this.title = title;
-    }
-
-    public Games() {
+    @Override
+    public String toString() {
+        return "Games{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", ESRBRating=" + ESRBRating +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", name='" + name + '\'' +
+                ", studio='" + studio + '\'' +
+                ", quantity=" + quantity +
+                '}';
     }
 
     public Integer getId() {
@@ -51,12 +99,12 @@ public class Games {
         this.id = id;
     }
 
-    public double getPrice() {
-        return price;
+    public String getTitle() {
+        return title;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public double getESRBRating() {
@@ -65,6 +113,22 @@ public class Games {
 
     public void setESRBRating(double ESRBRating) {
         this.ESRBRating = ESRBRating;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     public String getName() {
@@ -83,16 +147,11 @@ public class Games {
         this.studio = studio;
     }
 
-    public String getTitle() {
-        return title;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    @Override
-    public String toString() {
-        return "Games{" + "id=" + id + ", price=" + price + ", ESRBRating=" + ESRBRating + ", name='" + name + '\'' + ", studio='" + studio + '\'' + ", title='" + title + '\'' + '}';
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

@@ -1,44 +1,66 @@
 package com.company.M4Summative.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Table(name = "TShirts")
+@Table(name = "t_shirt")
 public class TShirts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private double price;
-    private String name;
-    private String size;
-    private String color;
 
-    public TShirts(Integer id, double price, String name, String size, String color) {
+    @NotNull
+    @Column(name = "t_shirt_id")
+    private Integer id;
+
+    @NotNull
+    @Length(max = 20)
+    private String size;
+
+    @NotNull
+    @Length(max = 20)
+    private double color;
+
+    @NotNull
+    @Length(max = 255, min = 1)
+    private String description;
+
+    @NotNull
+    private BigDecimal price;
+
+    @NotNull
+    private int quantity;
+
+
+    public TShirts(Integer id, String size, double color, String description, BigDecimal price, int quantity) {
         this.id = id;
-        this.price = price;
-        this.name = name;
         this.size = size;
         this.color = color;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
     }
 
     public TShirts() {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TShirts tShirts = (TShirts) o;
-        return Double.compare(tShirts.price, price) == 0 && Objects.equals(id, tShirts.id) && Objects.equals(name, tShirts.name) && Objects.equals(size, tShirts.size) && Objects.equals(color, tShirts.color);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, price, name, size, color);
+    public String toString() {
+        return "TShirts{" +
+                "id=" + id +
+                ", size='" + size + '\'' +
+                ", color=" + color +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
     }
 
     public Integer getId() {
@@ -49,22 +71,6 @@ public class TShirts {
         this.id = id;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getSize() {
         return size;
     }
@@ -73,22 +79,35 @@ public class TShirts {
         this.size = size;
     }
 
-    public String getColor() {
+    public double getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(double color) {
         this.color = color;
     }
 
-    @Override
-    public String toString() {
-        return "TShirts{" +
-                "id=" + id +
-                ", price=" + price +
-                ", name='" + name + '\'' +
-                ", size='" + size + '\'' +
-                ", color='" + color + '\'' +
-                '}';
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
