@@ -43,7 +43,7 @@ public class GamesController {
 
     @GetMapping(value = "/esrbrating/{esrbrating}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Games> findGamesByESRBRating(@PathVariable String esrbrating) {
+    public List<Games> findGamesByESRBRating(@PathVariable int esrbrating) {
         return gamesRepository.findByESRBRating(esrbrating);
     }
 
@@ -77,6 +77,7 @@ public class GamesController {
 //    the deleted routes
 
     @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public void deleteGame(@PathVariable int id) {
         gamesRepository.deleteById(id);
     }

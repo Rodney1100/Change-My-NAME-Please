@@ -33,7 +33,7 @@ public class Consoles {
     @NotNull
     @Length(max = 50, min = 1)
     @Column(name = "memory_amount")
-    private String memory_amount;
+    private String memoryAmount;
 
     @NotNull
     @Length(max = 50, min = 1)
@@ -46,11 +46,11 @@ public class Consoles {
     @NotNull
     private int quantity;
 
-    public Consoles(Integer id, String model, String manufacturer, String memory_amount, String processor, BigDecimal price, int quantity) {
+    public Consoles(Integer id, String model, String manufacturer, String memoryAmount, String processor, BigDecimal price, int quantity) {
         this.id = id;
         this.model = model;
         this.manufacturer = manufacturer;
-        this.memory_amount = memory_amount;
+        this.memoryAmount = memoryAmount;
         this.processor = processor;
         this.price = price;
         this.quantity = quantity;
@@ -65,7 +65,7 @@ public class Consoles {
                 "id=" + id +
                 ", model='" + model + '\'' +
                 ", manufacturer='" + manufacturer + '\'' +
-                ", memory_amount='" + memory_amount + '\'' +
+                ", memoryAmount='" + memoryAmount + '\'' +
                 ", processor='" + processor + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
@@ -77,12 +77,12 @@ public class Consoles {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Consoles consoles = (Consoles) o;
-        return quantity == consoles.quantity && Objects.equals(id, consoles.id) && Objects.equals(model, consoles.model) && Objects.equals(manufacturer, consoles.manufacturer) && Objects.equals(memory_amount, consoles.memory_amount) && Objects.equals(processor, consoles.processor) && Objects.equals(price, consoles.price);
+        return quantity == consoles.quantity && Objects.equals(id, consoles.id) && Objects.equals(model, consoles.model) && Objects.equals(manufacturer, consoles.manufacturer) && Objects.equals(memoryAmount, consoles.memoryAmount) && Objects.equals(processor, consoles.processor) && Objects.equals(price, consoles.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, model, manufacturer, memory_amount, processor, price, quantity);
+        return Objects.hash(id, model, manufacturer, memoryAmount, processor, price, quantity);
     }
 
     public Integer getId() {
@@ -109,12 +109,12 @@ public class Consoles {
         this.manufacturer = manufacturer;
     }
 
-    public String getMemory_amount() {
-        return memory_amount;
+    public String getMemoryAmount() {
+        return memoryAmount;
     }
 
-    public void setMemory_amount(String memory_amount) {
-        this.memory_amount = memory_amount;
+    public void setMemory_amount(String memoryAmount) {
+        this.memoryAmount = memoryAmount;
     }
 
     public String getProcessor() {

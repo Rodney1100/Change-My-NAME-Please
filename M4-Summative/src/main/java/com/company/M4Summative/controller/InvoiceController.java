@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RequestMapping(value = "/games")
+@RequestMapping(value = "/invoice")
 @RestController
 public class InvoiceController {
 //    @Autowired
