@@ -20,7 +20,7 @@ public class ConsolesController {
 
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
-   public List<Consoles> getAllConsoles(){
+    public List<Consoles> getAllConsoles() {
         return consolesRepository.findAll();
     }
 
@@ -69,6 +69,4 @@ public class ConsolesController {
     public void deleteConsoles(@PathVariable int id) {
         consolesRepository.deleteById(id);
     }
-
-
 }

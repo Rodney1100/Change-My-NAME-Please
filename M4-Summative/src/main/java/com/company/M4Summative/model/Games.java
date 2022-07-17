@@ -25,9 +25,10 @@ public class Games {
     private String title;
 
     @NotNull
+    @Column(name = "esrb_rating ")
 //  @NotEmpty(message = "You must supply a value for ESRBRating")
     @Length(max = 50, min = 1)
-    private double ESRBRating;
+    private int ESRBRating;
 
     @NotNull
 //  @NotEmpty(message = "You must supply a value for description ")
@@ -50,7 +51,7 @@ public class Games {
     @NotNull
     private int quantity;
 
-    public Games(Integer id, String title, double ESRBRating, String description, BigDecimal price, String name, String studio, int quantity) {
+    public Games(Integer id, String title, int ESRBRating, String description, BigDecimal price, String name, String studio, int quantity) {
         this.id = id;
         this.title = title;
         this.ESRBRating = ESRBRating;
@@ -69,7 +70,7 @@ public class Games {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Games games = (Games) o;
-        return Double.compare(games.ESRBRating, ESRBRating) == 0 && quantity == games.quantity && Objects.equals(id, games.id) && Objects.equals(title, games.title) && Objects.equals(description, games.description) && Objects.equals(price, games.price) && Objects.equals(name, games.name) && Objects.equals(studio, games.studio);
+        return ESRBRating == games.ESRBRating && quantity == games.quantity && Objects.equals(id, games.id) && Objects.equals(title, games.title) && Objects.equals(description, games.description) && Objects.equals(price, games.price) && Objects.equals(name, games.name) && Objects.equals(studio, games.studio);
     }
 
     @Override
@@ -107,11 +108,11 @@ public class Games {
         this.title = title;
     }
 
-    public double getESRBRating() {
+    public int getESRBRating() {
         return ESRBRating;
     }
 
-    public void setESRBRating(double ESRBRating) {
+    public void setESRBRating(int ESRBRating) {
         this.ESRBRating = ESRBRating;
     }
 

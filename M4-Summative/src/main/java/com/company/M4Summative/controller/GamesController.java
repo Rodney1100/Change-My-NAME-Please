@@ -19,7 +19,7 @@ public class GamesController {
 
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
-    public List<Games> gettinAllGames() {
+    public List<Games> gettingAllGames() {
         return gamesRepository.findAll();
     }
 

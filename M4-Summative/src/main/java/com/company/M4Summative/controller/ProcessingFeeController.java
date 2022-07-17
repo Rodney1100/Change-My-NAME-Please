@@ -9,10 +9,9 @@ public class ProcessingFeeController {
     @RestController
     @RequestMapping(value = "/games")
     public class GamesController {
-        @Autowired
-        private GamesRepository gamesRepository;
+//        @Autowired
+//        private GamesRepository gamesRepository;
 
         // all the standard gets
-
     }
 }

@@ -9,29 +9,32 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 
-public class SalesTaxRate {
     @Entity
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @Table(name = "sales_tax_rate")
-    public class TShirts {
+public class SalesTaxRate {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Integer id;
 
         @NotNull
-        @Length(max = 2)
+        @Length(max = 2, min = 1)
         private String state;
 
         @NotNull
         private BigDecimal rate;
 
-        public TShirts(String state, BigDecimal rate) {
+        public SalesTaxRate(String state, BigDecimal rate) {
             this.state = state;
             this.rate = rate;
         }
 
+        public SalesTaxRate() {
+        }
+
         @Override
         public String toString() {
-            return "TShirts{" +
+            return "SalesTaxRate{" +
                     "state='" + state + '\'' +
                     ", rate=" + rate +
                     '}';
@@ -41,10 +44,9 @@ public class SalesTaxRate {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            TShirts tShirts = (TShirts) o;
-            return Objects.equals(state, tShirts.state) && Objects.equals(rate, tShirts.rate);
+            SalesTaxRate that = (SalesTaxRate) o;
+            return Objects.equals(state, that.state) && Objects.equals(rate, that.rate);
         }
-
 
         @Override
         public int hashCode() {
@@ -67,5 +69,4 @@ public class SalesTaxRate {
             this.rate = rate;
         }
     }
-}
 

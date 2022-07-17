@@ -12,7 +12,7 @@ import java.util.Optional;
 @RequestMapping(value = "/games")
 @RestController
 public class InvoiceController {
-    @Autowired
-    private InvoiceRepository invoiceRepository;
+//    @Autowired
+//    private InvoiceRepository invoiceRepository;
 
 }
