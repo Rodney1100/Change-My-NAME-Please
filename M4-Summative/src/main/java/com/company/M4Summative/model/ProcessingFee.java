@@ -16,9 +16,6 @@ import java.util.Objects;
 public class ProcessingFee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "processing_fee_id")
-    private Integer id;
-
     @NotEmpty
     @Column(name = "product_type")
     @Length(max = 20, min = 1)
@@ -26,14 +23,6 @@ public class ProcessingFee {
 
     @NotNull
     private BigDecimal fee;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getProductType() {
         return productType;
@@ -51,33 +40,23 @@ public class ProcessingFee {
         this.fee = fee;
     }
 
-    public ProcessingFee(Integer id, String productType, BigDecimal fee) {
-        this.id = id;
-        this.productType = productType;
-        this.fee = fee;
-    }
-
-    public ProcessingFee() {
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProcessingFee that = (ProcessingFee) o;
-        return Objects.equals(id, that.id) && Objects.equals(productType, that.productType) && Objects.equals(fee, that.fee);
+        return Objects.equals(productType, that.productType) && Objects.equals(fee, that.fee);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, productType, fee);
+        return Objects.hash(productType, fee);
     }
 
     @Override
     public String toString() {
         return "ProcessingFee{" +
-                "id=" + id +
-                ", productType='" + productType + '\'' +
+                "productType='" + productType + '\'' +
                 ", fee=" + fee +
                 '}';
     }

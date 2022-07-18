@@ -15,7 +15,7 @@ public class ProcessingFeeController {
     private ProcessingFeeRepository processingFeeRepository;
     @GetMapping("/productType")
     @ResponseStatus(HttpStatus.OK)
-    public List<ProcessingFee> getProcessingFee(@PathVariable("productType") String productType) {
-        return processingFeeRepository.findProcessingFee(productType);
+    public ProcessingFee getProcessingFee(@PathVariable("productType") String productType) {
+        return processingFeeRepository.findById(productType).get();
     }
 }

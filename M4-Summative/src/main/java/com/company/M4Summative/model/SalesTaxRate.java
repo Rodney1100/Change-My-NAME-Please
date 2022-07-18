@@ -15,8 +15,6 @@ import java.util.Objects;
 public class SalesTaxRate {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Integer id;
-
         @NotNull
         @Length(max = 2, min = 1)
         private String state;

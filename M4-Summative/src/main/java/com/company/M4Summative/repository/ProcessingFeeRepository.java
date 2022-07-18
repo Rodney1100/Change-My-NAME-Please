@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProcessingFeeRepository extends JpaRepository<ProcessingFee, Integer> {
-    List<ProcessingFee> findProcessingFee(String productType);
+public interface ProcessingFeeRepository extends JpaRepository<ProcessingFee, String> {
+//    List<ProcessingFee> findProcessingFee(String productType);
 }
 
