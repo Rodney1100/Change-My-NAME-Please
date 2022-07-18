@@ -78,7 +78,8 @@ public class GamesController {
 
     @DeleteMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteGame(@PathVariable int id) {
+    public String deleteGame(@PathVariable int id) {
         gamesRepository.deleteById(id);
+    return "Game with the id "+id+" was deleted";
     }
 }

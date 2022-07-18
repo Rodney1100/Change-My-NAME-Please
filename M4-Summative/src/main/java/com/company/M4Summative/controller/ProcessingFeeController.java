@@ -1,15 +1,21 @@
 package com.company.M4Summative.controller;
 
-import com.company.M4Summative.repository.GamesRepository;
+import com.company.M4Summative.model.ProcessingFee;
+import com.company.M4Summative.repository.ProcessingFeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping(value = "/feeController")
+@RequestMapping(value = "/processingFee")
 public class ProcessingFeeController {
-
-//        @Autowired
-//        private GamesRepository gamesRepository;
-
-    // all the standard gets
+    @Autowired
+    private ProcessingFeeRepository processingFeeRepository;
+    @GetMapping("/productType")
+    @ResponseStatus(HttpStatus.OK)
+    public List<ProcessingFee> getProcessingFee(@PathVariable("productType") String productType) {
+        return processingFeeRepository.findProcessingFee(productType);
+    }
 }

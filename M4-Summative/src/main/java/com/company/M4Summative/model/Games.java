@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Games")
+@Table(name = "games")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Games {
     @Id

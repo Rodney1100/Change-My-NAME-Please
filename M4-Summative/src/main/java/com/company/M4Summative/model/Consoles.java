@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -15,14 +14,10 @@ import java.util.Objects;
 public class Consoles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-
-    @NotNull
     @Column(name = "console_id")
     private Integer id;
 
     @NotNull
-//  @NotEmpty(message = "You must supply a value for model ")
     @Length(max = 50, min = 1)
     private String model;
 
@@ -40,7 +35,6 @@ public class Consoles {
     private String processor;
 
     @NotNull
-    @Length
     private BigDecimal price;
 
     @NotNull

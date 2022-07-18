@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -15,20 +15,19 @@ import java.util.Objects;
 public class TShirts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    @NotNull
     @Column(name = "t_shirt_id")
     private Integer id;
 
-    @NotNull
-    @Length(max = 20)
+
+    @NotEmpty
+    @Length(max = 255, min = 1)
     private String size;
 
-    @NotNull
-    @Length(max = 20)
-    private double color;
+    @NotEmpty
+    @Length(max = 20, min = 1)
+    private String color;
 
-    @NotNull
+    @NotEmpty
     @Length(max = 255, min = 1)
     private String description;
 
@@ -38,30 +37,6 @@ public class TShirts {
     @NotNull
     private int quantity;
 
-
-    public TShirts(Integer id, String size, double color, String description, BigDecimal price, int quantity) {
-        this.id = id;
-        this.size = size;
-        this.color = color;
-        this.description = description;
-        this.price = price;
-        this.quantity = quantity;
-    }
-
-    public TShirts() {
-    }
-
-    @Override
-    public String toString() {
-        return "TShirts{" +
-                "id=" + id +
-                ", size='" + size + '\'' +
-                ", color=" + color +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", quantity=" + quantity +
-                '}';
-    }
 
     public Integer getId() {
         return id;
@@ -79,11 +54,11 @@ public class TShirts {
         this.size = size;
     }
 
-    public double getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(double color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
@@ -109,5 +84,34 @@ public class TShirts {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public TShirts(String size, String color, String description, BigDecimal price, int quantity) {
+        this.size = size;
+        this.color = color;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public TShirts() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TShirts tShirts = (TShirts) o;
+        return quantity == tShirts.quantity && Objects.equals(id, tShirts.id) && Objects.equals(size, tShirts.size) && Objects.equals(color, tShirts.color) && Objects.equals(description, tShirts.description) && Objects.equals(price, tShirts.price);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, size, color, description, price, quantity);
+    }
+
+    @Override
+    public String toString() {
+        return "TShirts{" + "id=" + id + ", size='" + size + '\'' + ", color=" + color + ", description='" + description + '\'' + ", price=" + price + ", quantity=" + quantity + '}';
     }
 }

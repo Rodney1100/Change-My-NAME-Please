@@ -15,8 +15,6 @@ public class Invoice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    @NotNull
     @Column(name = "invoice_id")
     private Integer id;
 
