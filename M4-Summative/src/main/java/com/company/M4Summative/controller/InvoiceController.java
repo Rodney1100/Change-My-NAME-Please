@@ -10,9 +10,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RequestMapping(value = "/invoice")
+@CrossOrigin()
+
 @RestController
 public class InvoiceController {
-//    @Autowired
-//    private InvoiceRepository invoiceRepository;
+
+    @Autowired
+   private InvoiceRepository invoiceRepository;
+
+
 
 }
