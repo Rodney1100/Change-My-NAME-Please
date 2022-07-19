@@ -74,7 +74,7 @@ function TShirts() {
                         <th>Quantity</th>
                     </tr>
                     <tbody>
-                        {TShirts.map(r => <ShirtCard key={r.ShirtId} Shirt={r} notify={notify} />)}
+                        {TShirts.map(r => <ShirtCard key={r.id} Shirt={r} notify={notify} />)}
                     </tbody>
                 </table>
             </div>

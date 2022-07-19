@@ -86,9 +86,9 @@ import java.util.Optional;
 
         // Invoice CRUD -- Do not need to update / delete
         public List<Invoice> getAllInvoices() { return invoiceRepository.findAll(); }
-        public Optional<Invoice> getInvoiceById(int id) throws QueryNotFoundException {
+        public Optional<Invoice> getInvoiceById(int id) {
             if (invoiceRepository.findById(id).orElse(null) == null) {
-                throw new QueryNotFoundException("An invoice with that ID does not exist yet.");
+                return null;
             }
             return invoiceRepository.findById(id);
         }
@@ -107,4 +107,4 @@ import java.util.Optional;
         return invoiceRepository.save(updatedInvoice);
       */
     }
-}
+

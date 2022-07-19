@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function GamesForm({ game: initialGames, notify }) {
+function GamesForm({ Games: initialGames, notify }) {
 
     const [Games, setGames] = useState(initialGames);
     const isAdd = initialGames.id === 0;

@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+//@CrossOrigin(origins = {"https://localhost:3000"})
 @RequestMapping(value = "/tShirts")
-@CrossOrigin(origins = {"https://localhost:3000"})
 public class TShirtsController {
     @Autowired
     private TShirtsRepository tShirtsRepository;

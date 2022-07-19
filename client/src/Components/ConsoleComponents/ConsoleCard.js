@@ -7,7 +7,7 @@ function ConsoleCard({ Console, notify }) {
     }
 
     return (
-        <tr key={Console.ConsoleId}>
+        <tr key={Console.id}>
             <td>{Console.model}</td>
             <td>{Console.manufacturer}</td>
             <td>{Console.memoryAmount}</td>

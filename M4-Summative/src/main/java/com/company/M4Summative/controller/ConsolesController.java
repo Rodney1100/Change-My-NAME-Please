@@ -12,7 +12,7 @@ import java.util.Optional;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000/"})
+//@CrossOrigin(origins = {"http://localhost:3000/"})
 @RequestMapping(value = "/consoles")
 public class ConsolesController {
     @Autowired

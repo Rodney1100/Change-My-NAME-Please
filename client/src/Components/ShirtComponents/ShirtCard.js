@@ -7,7 +7,7 @@ function ShirtCard({ Shirt, notify }) {
     }
 
     return (
-        <tr key={Shirt.ShirtId}>
+        <tr key={Shirt.id}>
             <td>{Shirt.size}</td>
             <td>{Shirt.color}</td>
             <td>{Shirt.description}</td>

@@ -76,7 +76,7 @@ function Consoles() {
                         <th>Quantity</th>
                     </tr>
                     <tbody>
-                        {Consoles.map(r => <ConsoleCard key={r.ConsoleId} Console={r} notify={notify} />)}
+                        {Consoles.map(r => <ConsoleCard key={r.id} Console={r} notify={notify} />)}
                     </tbody>
                 </table>
             </div>

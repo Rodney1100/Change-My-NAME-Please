@@ -1,12 +1,12 @@
 
 function GamesCard({ Games, notify }) {
   function handleDelete() {
-    fetch(`http://localhost:8080/Games/${Games.id}`, { method: "DELETE" })
+    fetch(`http://localhost:8080/games/${Games.id}`, { method: "DELETE" })
       .then(() => notify({ action: "delete", Games: Games }))
       .catch((error) => notify({ action: "delete", error: error }));
   }
   return (
-    <tr key={Games.Id}>
+    <tr key={Games.id}>
       <td>{Games.title}</td>
       <td>{Games.ESRBRation}</td>
       <td>{Games.description}</td>
