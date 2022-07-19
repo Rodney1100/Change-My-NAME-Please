@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/salesTaxRate")
+@CrossOrigin(origins = {"https://localhost:3000"})
 public class SalesTaxRateController {
     @Autowired
 private SalesTaxRateRepository salesTaxRateRepository;

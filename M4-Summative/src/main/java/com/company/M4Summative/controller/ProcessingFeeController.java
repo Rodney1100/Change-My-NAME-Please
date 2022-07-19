@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/processingFee")
+@CrossOrigin(origins = {"https://localhost:3000"})
 public class ProcessingFeeController {
     @Autowired
     private ProcessingFeeRepository processingFeeRepository;

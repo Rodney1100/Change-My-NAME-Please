@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/tShirts")
+@CrossOrigin(origins = {"https://localhost:3000"})
 public class TShirtsController {
     @Autowired
     private TShirtsRepository tShirtsRepository;
