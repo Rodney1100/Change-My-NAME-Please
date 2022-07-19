@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import ShirtCard from './ShirtCard.js';
 import ShirtForm from './ShirtForm.js';
 
-function Shirts() {
+function TShirts() {
 
-    const [Shirts, setShirts] = useState([]);
+    const [TShirts, setShirts] = useState([]);
     const [showForm, setShowForm] = useState(false);
     const [scopedShirt, setScopedShirt] = useState({});
     const [error, setError] = useState();
@@ -13,7 +13,7 @@ function Shirts() {
         fetch("http://localhost:8080/tShirts")
         .then(response => response.json())
         .then(result => setShirts(result))
-        .catch(Shirts.log);
+        .catch(TShirts.log);
     }, []);
 
     function addClick() {
@@ -32,10 +32,10 @@ function Shirts() {
 
         switch (action) {
             case "add":
-                setShirts([...Shirts, Shirt]);
+                setShirts([...TShirts, Shirt]);
                 break;
             case "edit":
-                setShirts(Shirts.map(e => {
+                setShirts(TShirts.map(e => {
                     if (e.id === Shirt.id) {
                         return Shirt;
                     }
@@ -47,7 +47,7 @@ function Shirts() {
                 setShowForm(true);
                 return;
             case "delete":
-                setShirts(Shirts.filter(e => e.id !== Shirt.id));
+                setShirts(TShirts.filter(e => e.id !== Shirt.id));
                 break;
         }
         
@@ -63,9 +63,9 @@ function Shirts() {
         <>
             {error && <div className="alert alert-danger">{error}</div>}
             <div>
-                <h1 id='ShirtTitle'>Shirts</h1>
+                <h1 id='ShirtTitle'>TShirts</h1>
                 <button className="btn btn-primary" type="button" onClick={addClick}>Add a Shirt</button>
-                <table id='Shirts'>
+                <table id='TShirts'>
                     <tr>
                         <th>Size</th>
                         <th>Color</th>
@@ -74,7 +74,7 @@ function Shirts() {
                         <th>Quantity</th>
                     </tr>
                     <tbody>
-                        {Shirts.map(r => <ShirtCard key={r.ShirtId} Shirt={r} notify={notify} />)}
+                        {TShirts.map(r => <ShirtCard key={r.ShirtId} Shirt={r} notify={notify} />)}
                     </tbody>
                 </table>
             </div>
@@ -82,4 +82,4 @@ function Shirts() {
     )
 }
 
-export default Shirts;
+export default TShirts;

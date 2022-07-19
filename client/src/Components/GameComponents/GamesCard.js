@@ -1,3 +1,4 @@
+
 function GamesCard({ Games, notify }) {
   function handleDelete() {
     fetch(`http://localhost:8080/Games/${Games.id}`, { method: "DELETE" })

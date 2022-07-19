@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import "./../../allCss.css"
 import ConsoleCard from './ConsoleCard.js';
 import ConsoleForm from './ConsoleForm.js';
 
